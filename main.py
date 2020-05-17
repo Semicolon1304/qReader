@@ -1,13 +1,10 @@
 # Import all the things
-import pydub
-from pydub import AudioSegment
-from pydub.playback import play
+import winsound
 from bs4 import BeautifulSoup
-import urllib3
 import requests
 
 
-airRaid = AudioSegment.from_wav("airRaid.wav")
+
 #Reading the queue data
 url = 'https://2b2t.io/api/queue?last=true'
 page = requests.get(url)
@@ -33,7 +30,7 @@ print(queue)
 
 # If/Else crap time
 if queue <= 20:
-    play(airRaid)
+    winsound.PlaySound("airRaid", winsound.SND_airRaid.wav)
 
 else:
     while queue > 20:
