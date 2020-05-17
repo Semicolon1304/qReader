@@ -1,13 +1,14 @@
-# Import all the things
-import winsound
+# Import Library
+import time, threading
+from pydub import AudioSegment
+from pydub.playback import play
 from bs4 import BeautifulSoup
 import requests
 
-
+sound = AudioSegment.from_file("airRaid.wav", format="wav")
 
 #Reading the queue data
-url = 'https://2b2t.io/api/queue?last=true'
-page = requests.get(url)
+page = requests.get('https://2b2t.io/api/queue?last=true')
 soup = BeautifulSoup(page.text, 'html.parser')
 #Did the page download?
 if page.status_code == 200:
@@ -15,6 +16,16 @@ if page.status_code == 200:
 else :
     print("Something went wrong with downloading the page. Probably too many requests. try again later.")
 
+#declaring this function thing
+def refresh() :
+        page = requests.get('https://2b2t.io/api/queue?last=true')
+        soup - BeautifulSoup(page.text, 'html.parser')
+        fullQ = (soup.prettify())
+        uselessCrapVar, almost = fullQ.split(',')
+        queuing = almost[0:-3]
+        queue = int(queuing)
+        print(queue)
+        
 
 # obtaining data and storing in var 'queue'
 fullQ = (soup.prettify())
@@ -30,16 +41,22 @@ print(queue)
 
 # If/Else crap time
 if queue <= 20:
-    winsound.PlaySound("airRaid", winsound.SND_airRaid.wav)
+    play(sound)
 
 else:
     while queue > 20:
-        page = requests.get(url)
+        time.sleep(60)
+        page = requests.get('https://2b2t.io/api/queue?last=true')
+        soup = BeautifulSoup(page.text, 'html.parser')
         fullQ = (soup.prettify())
         uselessCrapVar, almost = fullQ.split(',')
         queuing = almost[0:-3]
         queue = int(queuing)
         print(queue)
+
+
+    
+        
 
     
 
