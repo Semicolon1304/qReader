@@ -5,7 +5,7 @@ from pydub.playback import play
 from bs4 import BeautifulSoup
 import requests
 
-sound = AudioSegment.from_file("airRaid.wav")
+sound = AudioSegment.from_file("sound.wav")
 
 #Reading the queue data
 page = requests.get('https://2b2t.io/api/queue?last=true')

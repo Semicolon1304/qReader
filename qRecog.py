@@ -1,9 +1,13 @@
-# Import Library
 import time, threading
+#Time Crap
 from pydub import AudioSegment
+
 from pydub.playback import play
+#Allows audio
 from bs4 import BeautifulSoup
+#Allows HTML import
 import requests
+#IDK what this does
 
 sound = AudioSegment.from_file('sound.wav')
 
@@ -67,3 +71,6 @@ else:
 
 
 
+
+
+# %%
