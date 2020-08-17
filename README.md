@@ -1,4 +1,4 @@
-# qRecog
+# qReader
 Alerts user when the 2b2t queue is below 20
 
 
@@ -11,7 +11,7 @@ Alerts user when the 2b2t queue is below 20
 
 **Windows**
 
-* Download the source code to your desktop as "qRecog"
+* Download the source code to your desktop as "qReader"
 * Change the mentions of "example" in "Start.bat" to your username.
 * (if you don't use OneDrive, remove the mentions of it)
 * Run `Start.bat`
