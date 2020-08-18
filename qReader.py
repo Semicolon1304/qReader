@@ -1,14 +1,27 @@
+from contextlib import contextmanager
 import time, threading
 #Time Crap
-from pydub import AudioSegment
-from pydub.playback import play
-#Allows audio
+
 from bs4 import BeautifulSoup
 #Allows HTML import
 import requests
+import sys, os
 #Also HTML import(?)
 
-sound = AudioSegment.from_file('sound.wav')
+@contextmanager
+def suppress_stdout():
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:  
+            yield
+        finally:
+            sys.stdout = old_stdout
+with suppress_stdout () :
+    from pydub import AudioSegment
+    from pydub.playback import play
+#Allows audio
+    sound = AudioSegment.from_file('sound.wav')
 
 #Reading the queue data
 page = requests.get('https://2b2t.io/api/queue?last=true')
@@ -17,7 +30,7 @@ soup = BeautifulSoup(page.text, 'html.parser')
 if page.status_code == 200:
     print('Working!')
 else :
-    print("Something went wrong with downloading the page. Probably too many requests. try again later.")
+    print("Something went wrong with reading the queue data. Probably too many requests. try again later.")
 
 #declaring this function thing
 def refresh() :

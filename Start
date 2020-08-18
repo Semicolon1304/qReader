@@ -1,4 +1,4 @@
 #!/bin/bash
 
 source venv/Scripts/activate
-python3 qReader.py
+python qReader.py
