@@ -5,6 +5,7 @@ Alerts user when the 2b2t queue is below 20
 # Dependencies
 
 * Python 3.8 installed to PATH
+* ffmpeg (Might not be required but you should install it just in case)
 
 
 # How to use
