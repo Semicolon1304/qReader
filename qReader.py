@@ -1,5 +1,7 @@
 from contextlib import contextmanager
 import time, threading
+import pydub
+
 #Time Crap
 
 from bs4 import BeautifulSoup
@@ -30,23 +32,13 @@ soup = BeautifulSoup(page.text, 'html.parser')
 if page.status_code == 200:
     print('Working!')
 else :
-    print("Something went wrong with reading the queue data. Probably too many requests. try again later.")
-
-#declaring this function thing
-def refresh() :
-        page = requests.get('https://2b2t.io/api/queue?last=true')
-        soup - BeautifulSoup(page.text, 'html.parser')
-        fullQ = (soup.prettify())
-        uselessCrapVar, almost = fullQ.split(',')
-        queuing = almost[0:-3]
-        queue = int(queuing)
-        print(queue)
+    print("Something went wrong with reading the queue data. Probably too many requests. Please try again later.")
         
 
 # obtaining data and storing in var 'queue'
 fullQ = (soup.prettify())
 uselessCrapVar, almost = fullQ.split(',')
-queuing = almost[0:-3]
+queuing = almost[:-3]
 queue = int(queuing)
 print(queue)
 
