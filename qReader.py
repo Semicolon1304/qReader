@@ -32,16 +32,6 @@ if page.status_code == 200:
 else :
     print("Something went wrong with reading the queue data. Probably too many requests. try again later.")
 
-#declaring this function thing
-def refresh() :
-        page = requests.get('https://2b2t.io/api/queue?last=true')
-        soup - BeautifulSoup(page.text, 'html.parser')
-        fullQ = (soup.prettify())
-        uselessCrapVar, almost = fullQ.split(',')
-        queuing = almost[0:-3]
-        queue = int(queuing)
-        print(queue)
-        
 
 # obtaining data and storing in var 'queue'
 fullQ = (soup.prettify())
@@ -49,8 +39,6 @@ uselessCrapVar, almost = fullQ.split(',')
 queuing = almost[0:-3]
 queue = int(queuing)
 print(queue)
-
-
 
 
 # Wow figuring that out sucked. Almost done. End of 5/16/20
