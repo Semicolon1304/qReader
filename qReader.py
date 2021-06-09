@@ -43,8 +43,6 @@ queue = int(queuing)
 print(queue)
 
 
-
-
 # Wow figuring that out sucked. Almost done. End of 5/16/20
 
 # If/Else crap time
@@ -61,20 +59,3 @@ else:
         queuing = almost[0:-3]
         queue = int(queuing)
         print(queue)
-
-
-    
-        
-
-    
-
-
-    
-    
-
-
-
-
-
-
-# %%
